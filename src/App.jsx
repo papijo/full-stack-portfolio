@@ -1,5 +1,6 @@
 import Contact from "./components/contact/Contact";
-import Hero from "./components/hero/hero";
+import Hero from "./components/hero/Hero-section";
+
 import Portfolio from "./components/portfolio/Portfolio";
 import Services from "./components/services/Services";
 
