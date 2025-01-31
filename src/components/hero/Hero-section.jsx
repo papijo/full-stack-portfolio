@@ -4,6 +4,9 @@
 import "./hero.css";
 import Speech from "./Speech";
 import { motion } from "motion/react";
+import { Canvas } from "@react-three/fiber";
+import Shape from "./Shape";
+import {Suspense} from "react"
 
 const awardVariants = {
   initial: {
@@ -129,16 +132,22 @@ const Hero = () => {
         <Speech />
 
         {/* Certificate */}
-        <div className="certificate">
+        <motion.div className="certificate">
           <img src="/certificate.png" alt="" />
-          <p>
-            IBM CERTIFIED <br /> PROFESSIONAL <br /> DATA ENGINEER{" "}
-          </p>
-        </div>
+          IBM CERTIFIED <br /> PROFESSIONAL <br /> DATA ENGINEER
+        </motion.div>
         {/* Contact Button */}
 
-        <a href="/#contact">
-          <div className="contactButton">
+        <motion.a
+          href="/#contact"
+          animate={{ x: [200, 0] }}
+          transition={{ duration: 2 }}
+        >
+          <motion.div
+            className="contactButton"
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          >
             <svg viewBox="0 0 200 200" width="150" height="150">
               <circle cx="100" cy="100" r="90" fill="pink" />
               <path
@@ -169,11 +178,16 @@ const Hero = () => {
                 <polyline points="9 6 18 6 18 15" />
               </svg>
             </div>
-          </div>
-        </a>
+          </motion.div>
+        </motion.a>
       </div>
       <div className="bg">
         {/* 3d */}
+        <Canvas>
+          <Suspense fallback="loading...." >
+          <Shape />
+          </Suspense>
+        </Canvas>
         <div className="hImg">
           <img src="/hero.png" alt="" />
         </div>
