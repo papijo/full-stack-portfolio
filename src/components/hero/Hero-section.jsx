@@ -4,9 +4,11 @@
 import "./hero.css";
 import Speech from "./Speech";
 import { motion } from "motion/react";
-import { Canvas } from "@react-three/fiber";
-import Shape from "./Shape";
-import {Suspense} from "react"
+// import { Canvas } from "@react-three/fiber";
+// import Shape from "./Shape";
+// import { Suspense } from "react";
+// import RoomContainer from "./RoomContainer";
+import OldLaptopContainer from "./OldLaptopContainer";
 
 const awardVariants = {
   initial: {
@@ -183,14 +185,15 @@ const Hero = () => {
       </div>
       <div className="bg">
         {/* 3d */}
-        <Canvas>
-          <Suspense fallback="loading...." >
-          <Shape />
+        {/* <Canvas>
+          <Suspense fallback="loading....">
+            <Shape />
           </Suspense>
-        </Canvas>
-        <div className="hImg">
-          <img src="/hero.png" alt="" />
-        </div>
+        </Canvas> */}
+
+        {/* <RoomContainer /> */}
+        <OldLaptopContainer />
+        <div className="hImg">{/* <img src="/hero.png" alt="" /> */}</div>
       </div>
     </div>
   );
